@@ -1,24 +1,35 @@
 #include <stdio.h>
 /**
- * main - program that prints numbers from 0 to 99.
+ * main - program that prints numbers from 0 to 99 without figure repeat.
  * Return: 0
  */
 
 int main(void)
 {
-	int c = 0;
+	int i, j;
 
-	while (c <= 99)
+	i = 0;
+	j = 0;
+
+	while (i < 9)
 	{
-		putchar(c / 10 + '0');
-		putchar(c % 10 + '0');
-		if (c != 99)
+		j = i + 1;
+		while (j < 10)
 		{
-			putchar(',');
-			putchar(' ');
+			putchar('0' + i);
+			putchar('0' + j);
+
+			if (i < 8 || j < 9)
+			{
+				putchar(',');
+				putchar(' ');
+			}
+			j++;
 		}
-		c++;
+		++i;
 	}
-putchar('\n');
-return (0);
+
+	putchar('\n');
+
+	return (0);
 }
