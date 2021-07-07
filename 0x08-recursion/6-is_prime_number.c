@@ -1,28 +1,29 @@
 #include "holberton.h"
+
 /**
- * is_prime_number - func that returns 1 if a num is a prime num, 0 otherwise
- * @n: number for input
- * Return: 0
+ * isPrime - helper function for is_prime_number
+ * @n: input number
+ * @i: iterator
+ * Return: 1 if true, 0 if false
  */
-int is_prime_number(int n)
+int isPrime(int n, int i)
 {
-	return (helper_prime(n, 2, n / 2));
+	if (i == 1)
+		return (1);
+	if (n % i == 0)
+		return (0);
+	return (isPrime(n, i - 1));
 }
 
 /**
- *  helper_prime - blank
- * @n: checkl
- * @i: for the increment
- * @limit: stop
- * Return: 0
+ * is_prime_number - returns 1 if the input integer is a prime number,
+ * otherwise return 0
+ * @n: input number
+ * Return: 1 if true, 0 if false
  */
-
-int helper_prime(int n, int i, int limit)
+int is_prime_number(int n)
 {
-	if ((n % i == 0 && i <= limit) || n < 0 || n == 1)
+	if (n < 3)
 		return (0);
-	else if (n % i != 0 && i <= limit)
-		return (helper_prime(n, i + 1, limit));
-	else
-		return (1);
+	return (isPrime(n, n - 1));
 }
