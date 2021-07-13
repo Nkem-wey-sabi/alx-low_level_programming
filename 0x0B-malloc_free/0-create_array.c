@@ -1,26 +1,23 @@
 #include <stdlib.h>
 #include "holberton.h"
+
 /**
- * create_array - check the code for Holberton School students.
- * @size: argument for size of the array
- * @c: argument for char
- * Return: Always 0.
+ * create_array - creates an array of chars,
+ * and initializes it with a specific char
+ * @size: size of array
+ * @c: char to fill array with
+ * Return: string of chars
  */
+
 char *create_array(unsigned int size, char c)
 {
-	char *my_array;
-	unsigned int i = 0;
+	unsigned int i;
+	char *ptr;
 
-	my_array = malloc(size * sizeof(c));
-
-	while (i < size)
-	{
-		if (my_array == NULL)
-		{
-			return (NULL);
-		}
-		my_array[i] = c;
-		i++;
-	}
-	return (my_array);
+	ptr = malloc(sizeof(char) * size);
+	if (!size || !ptr)
+		return (NULL);
+	for (i = 0; i < size; i++)
+		ptr[i] = c;
+	return (ptr);
 }
