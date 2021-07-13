@@ -1,32 +1,54 @@
-#include "holberton.h"
 #include <stdlib.h>
+#include "holberton.h"
+
 /**
- * _strdup - check the code for Holberton School students.
- * @str: argument for array
- * Return: Always 0.
+ * _strlen - returns the length of a string
+ * @s: string s
+ * Return: length of string
  */
-char *_strdup(char *str)
+int _strlen(char *s)
 {
-	char *my_array;
-	int i, len;
+	int length = 0;
 
-	my_array = malloc(sizeof(str));
-
-	i = len = 0;
-	while (str[i] != '\0')
+	while (*s)
 	{
-		len++;
-		i++;
+		s++;
+		length++;
 	}
+	return (length);
+}
 
-	if (my_array == NULL)
+/**
+ * str_concat - concatenates two strings
+ * @s1: first string
+ * @s2: second string
+ * Return: concatenated strings
+ */
+char *str_concat(char *s1, char *s2)
+{
+	char *cat, *_cat;
+
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
+
+	cat = malloc(sizeof(char) * (_strlen(s1) + _strlen(s2)) + 1);
+	if (!cat)
 		return (NULL);
-	i = 0;
-	while (str[i] != '\0')
+	_cat = cat;
+	while (*s1)
 	{
-		my_array[i] = str[i];
-		i++;
+		*_cat = *s1;
+		_cat++;
+		s1++;
 	}
-
-	return (my_array);
+	while (*s2)
+	{
+		*_cat = *s2;
+		_cat++;
+		s2++;
+	}
+	*_cat = '\0';
+	return (cat);
 }
