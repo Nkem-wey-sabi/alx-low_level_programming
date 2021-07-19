@@ -1,5 +1,5 @@
 #ifndef OBJECT_LIKE_MACRO_H
 #define OBJECT_LIKE_MACRO_H
-#define SIZE 1024
-malloc(SIZE)
+#define BUFSIZE 1024
+#define SIZE BUFSIZE
 #endif 
