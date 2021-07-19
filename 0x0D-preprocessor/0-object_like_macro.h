@@ -1,8 +1,7 @@
 #ifndef OBJECT_LIKE_MACRO_H
 #define OBJECT_LIKE_MACRO_H
-/*
- * Header file that defines a macro named size
- */
-#define SIZE 1024
 
-#endif 
+#define SIZE 1024
+typedef int make_iso_compilers_happy;
+
+#endif
