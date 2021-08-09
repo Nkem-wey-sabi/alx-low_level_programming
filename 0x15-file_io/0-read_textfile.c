@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include "holberton.h"
+#include "main.h"
 
 /**
  * read_textfile - reads a text file and prints it to POSIX standard output.
